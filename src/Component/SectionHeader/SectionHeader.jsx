@@ -1,4 +1,5 @@
 import "./SectionHeader.css";
+// eslint-disable-next-line react/prop-types
 const SectionHeader = ({ title, subTitle }) => {
   return (
     <div className="font w-4/12 mx-auto text-center my-10">
