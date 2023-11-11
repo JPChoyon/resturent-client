@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SectionHeader from "../../../Component/SectionHeader/SectionHeader";
-import MenuCard from "./MenuCard/MenuCard";
+import SectionHeader from "../../../../Component/SectionHeader/SectionHeader";
+import MenuCard from "./MenuCard";
 
 const Menu = () => {
   const [menus, setMenus] = useState([]);
@@ -13,7 +13,7 @@ const Menu = () => {
       });
   }, [setMenus]);
   return (
-    <div className="my-10">
+    <div className="my-20">
       <SectionHeader
         title={"FROM OUR MENU"}
         subTitle={"Check it out"}
