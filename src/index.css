@@ -1,3 +1,10 @@
+/* cinzel font for navbar logo  */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900;400&display=swap");
+
+.navlogo{
+  font-family: 'Cinzel', serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,23 +1,38 @@
-
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navItems = (
     <>
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li>
-        <a>Parent</a>
-        
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+      <NavLink to={"/"}>
+        <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>Home</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/contact-us"}>
+        <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>CONTACT us</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/dashboard"}>
+        <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>DASHBOARD</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/our-menu"}>
+        <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>Our Menu</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/our-shop"}>
+        <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>Our Shop</a>
+        </li>
+      </NavLink>
     </>
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar fixed z-50 max-w-7xl mx-auto bg-[#15151580] ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,17 +53,18 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 hover:bg-none"
             >
-           {navItems}
+              {navItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <div className="text-white navlogo">
+            <h5 className="font-black text-xl">BISTRO BOSS</h5>
+            <h4 className="font-bold ">Restaurant</h4>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-           {navItems}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>

@@ -1,9 +1,12 @@
+import Banner from "./Banner/Banner";
+import Catagory from "./Catagory/Catagory";
 
 
 const Home = () => {
   return (
     <div>
-      this is home routes
+      <Banner></Banner>
+      <Catagory></Catagory>
     </div>
   );
 };
