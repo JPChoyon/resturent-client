@@ -1,0 +1,17 @@
+/* inter font import from the google  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;800&display=swap");
+.font {
+  font-family: "Inter", sans-serif;
+}
+.title-pera {
+  color: #d99904;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+}
+.title-header {
+  color: #151515;
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 400;
+}
