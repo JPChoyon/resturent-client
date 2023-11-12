@@ -1,4 +1,5 @@
 const SubComponent = ({ img, subHeadingtext, headingText }) => {
+  
   return (
     <div>
       <div
