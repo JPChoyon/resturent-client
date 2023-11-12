@@ -15,7 +15,7 @@ const Menu = () => {
   return (
     <div className="my-20">
       <SectionHeader
-        title={"FROM OUR MENU"}
+        title={"POPULAR MENU"}
         subTitle={"Check it out"}
       ></SectionHeader>
       <div className="grid md:grid-cols-2 gap-4 ">
