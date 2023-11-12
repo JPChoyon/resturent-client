@@ -6,10 +6,14 @@ import Cheif from "./Cheif/Cheif";
 import Feture from "./Feture/Feture";
 import Menu from "./Menu/MenuCard/Menu";
 import Testimonials from "./Testimonials/Testimonials";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Home</title>
+      </Helmet>
       <Banner></Banner>
       <Catagory></Catagory>
       <Cheif></Cheif>
