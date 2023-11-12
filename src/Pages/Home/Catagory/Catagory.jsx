@@ -28,31 +28,31 @@ const Catagory = () => {
         modules={[Pagination]}
         className="mySwiper my-10 font "
       >
-        <SwiperSlide>
+        <SwiperSlide className="md:mb-20">
           <img src={slide1} alt="slider images" />
           <p className="uppercase font-normal text-4xl text-white -mt-16 text-center">
             salad
           </p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="md:mb-20">
           <img src={slide2} alt="slider images" />
           <p className="uppercase font-normal text-4xl text-white -mt-16 text-center">
             soups
           </p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="md:mb-20">
           <img src={slide3} alt="slider images" />
           <p className="uppercase font-normal text-4xl text-white -mt-16 text-center">
             pizzas
           </p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="md:mb-20">
           <img src={slide4} alt="slider images" />
           <p className="uppercase font-normal text-4xl text-white -mt-16 text-center">
             desserts
           </p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="md:mb-20">
           <img src={slide5} alt="slider images" />
           <p className="uppercase font-normal text-4xl text-white -mt-16 text-center">
             salad

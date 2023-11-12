@@ -5,6 +5,7 @@ import ChefRecom from "./ChefRecom/ChefRecom";
 import Cheif from "./Cheif/Cheif";
 import Feture from "./Feture/Feture";
 import Menu from "./Menu/MenuCard/Menu";
+import Testimonials from "./Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <CallUs></CallUs>
       <ChefRecom></ChefRecom>
       <Feture></Feture>
+      <Testimonials></Testimonials>
     </div>
   );
 };

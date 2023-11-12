@@ -18,7 +18,7 @@ const Navbar = () => {
           <a>DASHBOARD</a>
         </li>
       </NavLink>
-      <NavLink to={"/our-menu"}>
+      <NavLink to={"/menu"}>
         <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
           <a>Our Menu</a>
         </li>
