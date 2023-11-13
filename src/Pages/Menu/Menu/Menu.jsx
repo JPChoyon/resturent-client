@@ -9,6 +9,7 @@ import soupImg from "../../../assets/menu/soup-bg.jpg";
 import SectionHeader from "../../../Component/SectionHeader/SectionHeader";
 import useMenu from "../../../Hooks/Menu/useMenu";
 import MenuCard from "../../Home/Menu/MenuCard/MenuCard";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [menus] = useMenu([]);
@@ -17,6 +18,9 @@ const Menu = () => {
   const pizzaMenus = menus.filter((menu) => menu.category === "pizza");
   const saladMenus = menus.filter((menu) => menu.category === "salad");
   const soupMenus = menus.filter((menu) => menu.category === "soup");
+  // console.log(dessertMenus[0].category);
+  console.log(offeredMenus);
+
   return (
     <div>
       <Helmet>
@@ -33,10 +37,17 @@ const Menu = () => {
         title={"today's offer"}
         subTitle={"Don't Miss"}
       ></SectionHeader>
-      <div className="grid md:grid-cols-2 my-8 gap-4 ">
-        {offeredMenus.map((menu) => (
-          <MenuCard key={menu._id} menu={menu}></MenuCard>
-        ))}
+      <div>
+        <div className="grid md:grid-cols-2 my-8 gap-4 ">
+          {offeredMenus.map((menu) => (
+            <MenuCard key={menu._id} menu={menu}></MenuCard>
+          ))}
+        </div>
+        <Link to={`/our-shop/${offeredMenus[0]?.category}`}>
+          <button className="btn btn-outline border-0 border-b-2 block mx-auto mb-7">
+            Order your favorite food
+          </button>
+        </Link>
       </div>
       <SubComponent
         img={dessertImg}
@@ -45,10 +56,17 @@ const Menu = () => {
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
       ></SubComponent>
-      <div className="grid md:grid-cols-2 my-8 gap-4 ">
-        {dessertMenus.map((menu) => (
-          <MenuCard key={menu._id} menu={menu}></MenuCard>
-        ))}
+      <div>
+        <div className="grid md:grid-cols-2 my-8 gap-4 ">
+          {dessertMenus.map((menu) => (
+            <MenuCard key={menu._id} menu={menu}></MenuCard>
+          ))}
+        </div>
+        <Link to={`/our-shop/${dessertMenus[0]?.category}`}>
+          <button className="btn btn-outline border-0 border-b-2 block mx-auto mb-7">
+            Order your favorite food
+          </button>
+        </Link>
       </div>
 
       <SubComponent
@@ -58,10 +76,17 @@ const Menu = () => {
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
       ></SubComponent>
-      <div className="grid md:grid-cols-2 my-8 gap-4 ">
-        {saladMenus.map((menu) => (
-          <MenuCard key={menu._id} menu={menu}></MenuCard>
-        ))}
+      <div>
+        <div className="grid md:grid-cols-2 my-8 gap-4 ">
+          {pizzaMenus.map((menu) => (
+            <MenuCard key={menu._id} menu={menu}></MenuCard>
+          ))}
+        </div>
+        <Link to={`/our-shop/${pizzaMenus[0]?.category}`}>
+          <button className="btn btn-outline border-0 border-b-2 block mx-auto mb-7">
+            Order your favorite food
+          </button>
+        </Link>
       </div>
       <SubComponent
         img={saladImg}
@@ -70,11 +95,19 @@ const Menu = () => {
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
       ></SubComponent>
-      <div className="grid md:grid-cols-2 my-8 gap-4 ">
-        {soupMenus.map((menu) => (
-          <MenuCard key={menu._id} menu={menu}></MenuCard>
-        ))}
+      <div>
+        <div className="grid md:grid-cols-2 my-8 gap-4 ">
+          {saladMenus.map((menu) => (
+            <MenuCard key={menu._id} menu={menu}></MenuCard>
+          ))}
+        </div>
+        <Link to={`/our-shop/${saladMenus[0]?.category}`}>
+          <button className="btn btn-outline border-0 border-b-2 block mx-auto mb-7">
+            Order your favorite food
+          </button>
+        </Link>
       </div>
+
       <SubComponent
         img={soupImg}
         headingText={"soups"}
@@ -82,6 +115,18 @@ const Menu = () => {
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
       ></SubComponent>
+      <div>
+        <div className="grid md:grid-cols-2 my-8 gap-4 ">
+          {soupMenus.map((menu) => (
+            <MenuCard key={menu._id} menu={menu}></MenuCard>
+          ))}
+        </div>
+        <Link to={`/our-shop/${soupMenus[0]?.category}`}>
+          <button className="btn btn-outline border-0 border-b-2 block mx-auto mb-7">
+            Order your favorite food
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
