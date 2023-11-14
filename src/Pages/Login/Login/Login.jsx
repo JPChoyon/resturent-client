@@ -5,9 +5,9 @@ import bgImg from "../../../assets/reservation/wood-grain-pattern-gray1x.png";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -93,11 +93,20 @@ const Login = () => {
                 </button>
               </div>
               <div className="form-control mt-6">
-                <button disabled={disable} className="btn btn-primary">
+                <button
+                  type="submit"
+                  disabled={disable}
+                  className="btn btn-primary"
+                >
                   Login
                 </button>
               </div>
             </form>
+            <Link to={"/signup"}>
+              <p>
+                <small>New here? Create a New Account</small>
+              </p>
+            </Link>
           </div>
         </div>
       </div>
