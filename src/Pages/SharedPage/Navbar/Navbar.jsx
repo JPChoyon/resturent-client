@@ -28,6 +28,11 @@ const Navbar = () => {
           <a>Our Shop</a>
         </li>
       </NavLink>
+      <NavLink to={"/login"}>
+        <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>Login</a>
+        </li>
+      </NavLink>
     </>
   );
   return (
