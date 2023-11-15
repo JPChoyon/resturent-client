@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Context/Context";
+import cartImg from '../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png';
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const handleLogout=()=> {
+  logOut()
+    .then()
+  .catch(err=>console.log(err))
+  }
   const navItems = (
     <>
       <NavLink to={"/"}>
@@ -28,11 +37,30 @@ const Navbar = () => {
           <a>Our Shop</a>
         </li>
       </NavLink>
-      <NavLink to={"/login"}>
+      <NavLink to={'/'}>
+        <div className="avatar indicator">
+          <span className="indicator-item badge badge-secondary">0</span>
+          <div className="w-10 h-10 rounded-lg">
+            <img
+              alt="Tailwind CSS examples"
+              src={cartImg}
+            />
+          </div>
+        </div>
+      </NavLink>
+      {/* {
+        user ? <>
+        <NavLink >
+        <li onClick={handleLogout} className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
+          <a>logout</a>
+        </li>
+      </NavLink>
+        </>:<><NavLink to={"/login"}>
         <li className=" font-bold uppercase text-white hover:text-white active:text-yellow-400">
           <a>Login</a>
         </li>
-      </NavLink>
+      </NavLink></>
+      } */}
     </>
   );
   return (
@@ -72,7 +100,26 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <>
+              <NavLink>
+                <li
+                  onClick={handleLogout}
+                  className=" font-bold uppercase list-none text-white hover:text-white active:text-yellow-400"
+                >
+                  <a>logout</a>
+                </li>
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to={"/login"}>
+                <li className=" font-bold uppercase list-none text-white hover:text-white active:text-yellow-400">
+                  <a>Login</a>
+                </li>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>
