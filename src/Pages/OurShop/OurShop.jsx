@@ -29,9 +29,9 @@ const OurShop = () => {
             <Tab
               key={index}
               className={`p-3 ${
-                tabIndex == index
+                tabIndex === index
                   ? "text-[#bb8506] border-b-[#bb8506]  cursor-pointer "
-                  : " cursor-pointer"
+                  : " text-red-500 cursor-pointer"
               }`}
             >
               {item}

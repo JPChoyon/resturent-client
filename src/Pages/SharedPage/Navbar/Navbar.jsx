@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Context/Context";
 import cartImg from '../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png';
+import useCart from "../../../Hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
+  const [cart]= useCart()
   const handleLogout=()=> {
   logOut()
     .then()
@@ -39,7 +41,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink to={'/'}>
         <div className="avatar indicator">
-          <span className="indicator-item badge badge-secondary">0</span>
+          <span className="indicator-item badge badge-secondary">{cart.length}</span>
           <div className="w-10 h-10 rounded-lg">
             <img
               alt="Tailwind CSS examples"
