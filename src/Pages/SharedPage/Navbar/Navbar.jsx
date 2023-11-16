@@ -39,14 +39,13 @@ const Navbar = () => {
           <a>Our Shop</a>
         </li>
       </NavLink>
-      <NavLink to={'/'}>
+      <NavLink to={"/dashboard"}>
         <div className="avatar indicator">
-          <span className="indicator-item badge badge-secondary">{cart.length}</span>
+          <span className="indicator-item badge badge-secondary">
+            {cart.length}
+          </span>
           <div className="w-10 h-10 rounded-lg">
-            <img
-              alt="Tailwind CSS examples"
-              src={cartImg}
-            />
+            <img alt="Tailwind CSS examples" src={cartImg} />
           </div>
         </div>
       </NavLink>
