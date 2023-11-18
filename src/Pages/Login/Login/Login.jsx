@@ -9,13 +9,17 @@ import {
 } from "react-simple-captcha";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/Context";
+import { FaGoogle } from "react-icons/fa";
+import useAxiosPublic, { AxiosPublic } from "../../../Hooks/useAxiosPublic";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const from = location.state?.from?.pathname ||'/'
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [disable, setdisable] = useState(true);
-  const { loading, emailLogin } = useContext(AuthContext);
+  const { loading, emailLogin, googleLogin } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
+
   useEffect(() => {
     fetch(loadCaptchaEnginge(6));
   }, []);
@@ -32,16 +36,29 @@ const Login = () => {
       const user = result.user;
       console.log(user);
     });
-    navigate(from,{replace:true})
+    navigate(from, { replace: true });
   };
   const handleCaptcha = (e) => {
-    
     const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value) == true) {
       setdisable(false);
     } else {
       setdisable(true);
     }
+  };
+  const handleGoogleLogin = () => {
+    googleLogin().then((res) => {
+      console.log(res.user);
+      const userInfo = {
+        name: res.user?.displayName,
+        email: res.user?.email,
+        photo: res.user?.photoURL,
+      };
+      axiosPublic.post("/users", userInfo).then((res) => {
+        console.log(res.data);
+        navigate("/");
+      });
+    });
   };
   return (
     <div>
@@ -111,6 +128,14 @@ const Login = () => {
                 <small>New here? Create a New Account</small>
               </p>
             </Link>
+            <div>
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle btn-outline"
+              >
+                <FaGoogle />
+              </button>
+            </div>
           </div>
         </div>
       </div>

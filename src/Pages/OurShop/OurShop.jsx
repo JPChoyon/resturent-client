@@ -16,6 +16,7 @@ const OurShop = () => {
   const saladMenus = menus.filter((menu) => menu.category === "salad");
   const soupMenus = menus.filter((menu) => menu.category === "soup");
   const drinksMenus = menus.filter((menu) => menu.category === "drinks");
+  console.log(tabIndex);
   return (
     <div>
       <ComponentHeader
@@ -30,8 +31,8 @@ const OurShop = () => {
               key={index}
               className={`p-3 ${
                 tabIndex === index
-                  ? "text-[#bb8506] border-b-[#bb8506]  cursor-pointer "
-                  : " text-red-500 cursor-pointer"
+                  ? " text-red-500 cursor-pointer"
+                  : "text-[#bb8506] border-b-[#bb8506]  cursor-pointer "
               }`}
             >
               {item}

@@ -1,10 +1,38 @@
 import SectionHeader from "../../../Component/SectionHeader/SectionHeader";
 import { MdDeleteOutline } from "react-icons/md";
 import useCart from "../../../Hooks/useCart";
+import Swal from "sweetalert2";
+import useAxios from "../../../Hooks/useAxios";
 
 const Cart = () => {
-  const [cart] = useCart();
-  const totalPrice = cart.reduce((total,item)=>total+item.price,0)
+  const [cart, refetch] = useCart();
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const axiosSecure = useAxios();
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/cart/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+          
+        });
+      }
+    });
+  };
   return (
     <div className="w-full">
       <SectionHeader
@@ -31,12 +59,10 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((cart,index) => (
+              {cart.map((cart, index) => (
                 <tr key={cart._id}>
                   <th>
-                    <label>
-                      {index+1}
-                    </label>
+                    <label>{index + 1}</label>
                   </th>
                   <td>
                     <div className="flex items-center gap-3">
@@ -57,7 +83,10 @@ const Cart = () => {
                   </td>
                   <td>{cart.price}$</td>
                   <th>
-                    <button className="btn bg-red-500 text-white text-3xl hover:text-black">
+                    <button
+                      onClick={() => handleDelete(cart._id)}
+                      className="btn bg-red-500 text-white text-3xl hover:text-black"
+                    >
                       <MdDeleteOutline />
                     </button>
                   </th>
