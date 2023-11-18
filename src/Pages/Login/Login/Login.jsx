@@ -54,6 +54,7 @@ const Login = () => {
         email: res.user?.email,
         photo: res.user?.photoURL,
       };
+      console.log(userInfo);
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);
         navigate("/");

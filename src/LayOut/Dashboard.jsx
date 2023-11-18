@@ -1,7 +1,9 @@
-import { FaBookOpen, FaCalendar, FaHome, FaMailBulk, FaShoppingCart, FaWallet } from "react-icons/fa";
+import { FaBookOpen, FaCalendar, FaHome, FaList, FaMailBulk, FaShoppingCart, FaUser, FaWallet } from "react-icons/fa";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import { IoBag, IoMenu } from "react-icons/io5";
 import { MdReviews } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+const isAdmin = true;
 
 const Dashboard = () => {
   return (
@@ -23,49 +25,99 @@ const Dashboard = () => {
               <h2 className="text-3xl font-bold uppercase">Bistro Boss</h2>
               <p className="text-2xl uppercase">r e s t u r e n t</p>
             </div>
-            <NavLink
-              to={"/"}
-              className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-            >
-              <FaHome></FaHome>
-              <li>user Home</li>
-            </NavLink>
-            <NavLink
-              to={"reservation"}
-              className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-            >
-              <FaCalendar></FaCalendar>
-              <li>reservation</li>
-            </NavLink>
-            <NavLink
-              to={"payment"}
-              className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-            >
-              <FaWallet></FaWallet>
-              <li>payment history</li>
-            </NavLink>
-            <NavLink
-              to={"cart"}
-              className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-            >
-              <FaShoppingCart />
-              <li>my cart</li>
-            </NavLink>
-            <NavLink
-              to={"review"}
-              className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-            >
-              <MdReviews></MdReviews>
-              <li>add review</li>
-            </NavLink>
+            {isAdmin ? (
+              <>
+                <NavLink
+                  to={"/"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaHome></FaHome>
+                  <li>Admin Home</li>
+                </NavLink>
+                <NavLink
+                  to={"reservation"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <GiForkKnifeSpoon />
+                  <li>add items</li>
+                </NavLink>
+                <NavLink
+                  to={"payment"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaList></FaList>
+                  <li>mange items</li>
+                </NavLink>
+                <NavLink
+                  to={"cart"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaBookOpen />
+                  <li>manage booking</li>
+                </NavLink>
+                <NavLink
+                  to={"review"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                 <FaUser></FaUser>
+                  <li>all users</li>
+                </NavLink>
 
-            <NavLink
-              to={"my-booking"}
-              className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-            >
-              <FaBookOpen></FaBookOpen>
-              <li>my booking</li>
-            </NavLink>
+                <NavLink
+                  to={"my-booking"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaBookOpen></FaBookOpen>
+                  <li>my booking</li>
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  to={"/"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaHome></FaHome>
+                  <li>user Home</li>
+                </NavLink>
+                <NavLink
+                  to={"reservation"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaCalendar></FaCalendar>
+                  <li>reservation</li>
+                </NavLink>
+                <NavLink
+                  to={"payment"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaWallet></FaWallet>
+                  <li>payment history</li>
+                </NavLink>
+                <NavLink
+                  to={"cart"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaShoppingCart />
+                  <li>my cart</li>
+                </NavLink>
+                <NavLink
+                  to={"review"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <MdReviews></MdReviews>
+                  <li>add review</li>
+                </NavLink>
+
+                <NavLink
+                  to={"my-booking"}
+                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
+                >
+                  <FaBookOpen></FaBookOpen>
+                  <li>my booking</li>
+                </NavLink>
+              </>
+            )}
             <div className="divider py-8 divide-red-50"></div>
             <NavLink
               to={"/"}
