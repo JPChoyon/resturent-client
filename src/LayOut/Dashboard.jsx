@@ -1,4 +1,13 @@
-import { FaBookOpen, FaCalendar, FaHome, FaList, FaMailBulk, FaShoppingCart, FaUser, FaWallet } from "react-icons/fa";
+import {
+  FaBookOpen,
+  FaCalendar,
+  FaHome,
+  FaList,
+  FaMailBulk,
+  FaShoppingCart,
+  FaUser,
+  FaWallet,
+} from "react-icons/fa";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { IoBag, IoMenu } from "react-icons/io5";
 import { MdReviews } from "react-icons/md";
@@ -35,40 +44,25 @@ const Dashboard = () => {
                   <li>Admin Home</li>
                 </NavLink>
                 <NavLink
-                  to={"reservation"}
-                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-                >
-                  <GiForkKnifeSpoon />
-                  <li>add items</li>
-                </NavLink>
-                <NavLink
-                  to={"payment"}
+                  to={"manage-items"}
                   className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
                 >
                   <FaList></FaList>
-                  <li>mange items</li>
+                  <li>manage items</li>
                 </NavLink>
                 <NavLink
-                  to={"cart"}
+                  to={"manage-booking"}
                   className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
                 >
                   <FaBookOpen />
                   <li>manage booking</li>
                 </NavLink>
                 <NavLink
-                  to={"review"}
+                  to={"all-user"}
                   className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
                 >
-                 <FaUser></FaUser>
+                  <FaUser></FaUser>
                   <li>all users</li>
-                </NavLink>
-
-                <NavLink
-                  to={"my-booking"}
-                  className="uppercase text-2xl py-3 flex items-center gap-2 text-black "
-                >
-                  <FaBookOpen></FaBookOpen>
-                  <li>my booking</li>
                 </NavLink>
               </>
             ) : (
