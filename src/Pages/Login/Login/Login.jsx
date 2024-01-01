@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import gif from "../../../assets/others/authentication2.png";
 import bgImg from "../../../assets/reservation/wood-grain-pattern-gray1x.png";
 // import racaptcha
@@ -10,14 +10,14 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/Context";
 import { FaGoogle } from "react-icons/fa";
-import useAxiosPublic, { AxiosPublic } from "../../../Hooks/useAxiosPublic";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [disable, setdisable] = useState(true);
-  const { loading, emailLogin, googleLogin } = useContext(AuthContext);
+  const { emailLogin, googleLogin } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
 
   useEffect(() => {

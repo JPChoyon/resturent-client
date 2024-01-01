@@ -39,7 +39,7 @@ const Navbar = () => {
           <a>Our Shop</a>
         </li>
       </NavLink>
-      <NavLink to={"/dashboard"}>
+      <NavLink to={"dashboard/cart"}>
         <div className="avatar indicator">
           <span className="indicator-item badge badge-secondary">
             {cart.length}
